@@ -1,0 +1,199 @@
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #333;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Question Header Card */
+.question-card {
+  background-color: #dbe8be;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.card-header {
+  background-color: #8cc63f;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card-body {
+  padding: 15px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.bold-text {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Sub-Instruction */
+.instruction {
+  color: #2b7bb9;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+/* Options Grid Layout */
+.options-grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* Card Styling */
+.option-card {
+  background-color: #dbe8be;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, border 0.2s;
+}
+
+.option-card:hover {
+  transform: translateY(-2px);
+}
+
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #000;
+  margin-bottom: 12px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-caption {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 0;
+}
+
+/* Custom Checkbox */
+.checkbox-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-wrapper input[type="radio"] {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #888;
+  background-color: white;
+  display: inline-block;
+}
+
+.checkbox-wrapper input[type="radio"]:checked + .custom-checkbox {
+  background-color: #8cc63f;
+  border-color: #6a9b2b;
+  position: relative;
+}
+
+.checkbox-wrapper input[type="radio"]:checked + .custom-checkbox::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: -2px;
+  left: 3px;
+}
+
+/* Actions Section */
+.action-area {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.submit-btn {
+  background-color: #b5b5b5;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: not-allowed;
+  width: 200px;
+}
+
+.submit-btn:enabled {
+  background-color: #8cc63f;
+  cursor: pointer;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Desktop: 4 columns in 1 row */
+@media (min-width: 900px) {
+  .options-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Laptop / Tablet: 3 columns + 1 centered below */
+@media (min-width: 650px) and (max-width: 899px) {
+  .options-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .option-card:nth-child(4) {
+    grid-column: 2;
+  }
+}
+
+/* Small Tablet / Mobile Landscape: 2x2 grid */
+@media (min-width: 480px) and (max-width: 649px) {
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Portrait: 1 column vertical stack */
+@media (max-width: 479px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background-color: #8cc63f;
+    cursor: pointer;
+  }
+}
